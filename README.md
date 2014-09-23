@@ -5,7 +5,6 @@ My personal blog.
 
 Using jquery, jsp, springmvc, springjdbctemplate, mysql
 
-```
 - Configure the data source JNDI in your tomcat context.xml
 ```
 		<Resource name="jndi/jasonblog"   
@@ -18,3 +17,4 @@ Using jquery, jsp, springmvc, springjdbctemplate, mysql
             maxActive="20"   
             maxIdle="10"   
             maxWait="10000"/>
+```
