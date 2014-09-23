@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" [<!ENTITY XCategory "org.log4j.xml.examples.XCategory">]>
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<!--<param name="File" value="System.out"/>	-->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p - %m%n%n"/>
+		</layout>
+	</appender>
+
+	<appender name="com.sys.logger" class="org.apache.log4j.FileAppender">
+		<param name="File" value="/Users/jasonyao/project/base2015.log"/>	
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p - %m%n%n"/>
+		</layout>
+	</appender>
+	
+	<root>  
+        <priority value ="info"/>  
+        <appender-ref ref="STDOUT"/>  
+        <appender-ref ref="com.sys.logger"/>    
+    </root>
+</log4j:configuration>
