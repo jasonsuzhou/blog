@@ -199,6 +199,32 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<instrumentation>
+						<!-- 
+						<ignores>
+							<ignore>com.example.boringcode.*</ignore>
+						</ignores>
+						 -->
+						<excludes>
+							<exclude>com/**/*Test.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+				<!-- 
+				<executions>
+					<execution>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+				 -->
+			</plugin>
 
 			<!-- separate integration test -->
 			<plugin>
@@ -206,8 +232,12 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.4.2</version>
 				<configuration>
-					<skip>true</skip>
+					<skip>false</skip>
+					<excludes>
+						<exclude>**/*IntegrationTest.java</exclude>
+					</excludes>
 				</configuration>
+				<!-- 
 				<executions>
 					<execution>
 						<id>unit-tests</id>
@@ -226,6 +256,7 @@
 						</configuration>
 					</execution>
 				</executions>
+				 -->
 			</plugin>
 		</plugins>
 
@@ -276,4 +307,20 @@
 			</build>
 		</profile>
 	</profiles>
+	<!-- cobertura reporting configuration s-->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<!-- cobertura reporting configuration e-->
 </project>
